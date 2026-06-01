@@ -1,0 +1,59 @@
+---
+import CartWidget from "../islands/CartWidget.jsx";
+
+const navLinks = [
+  { href: "/", label: "Inicio" },
+  { href: "/tienda", label: "Tienda" },
+  { href: "/nosotros", label: "Nosotros" },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-30 bg-white backdrop-blur shadow-sm" style="border-bottom: 1px solid #ede8ff">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
+    <!-- Logo -->
+    <a href="/" class="shrink-0">
+      <img
+        src="/logopajaritos.PNG"
+        alt="Pajaritos en la Cabeza"
+        class="h-12 w-auto object-contain"
+      />
+    </a>
+
+    <!-- Nav -->
+    <nav class="hidden md:flex items-center gap-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`px-4 py-2 rounded-full font-bold text-sm transition ${
+            currentPath === link.href
+              ? "bg-brand-orange text-white"
+              : "text-brand-text hover:bg-brand-orange-light hover:text-brand-orange"
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <!-- Cart widget (React island) -->
+    <CartWidget client:load />
+  </div>
+
+  <!-- Mobile nav bar -->
+  <nav class="md:hidden flex border-t border-gray-100">
+    {navLinks.map((link) => (
+      <a
+        href={link.href}
+        class={`flex-1 text-center py-2 text-xs font-bold transition ${
+          currentPath === link.href
+            ? "text-brand-orange border-b-2 border-brand-orange"
+            : "text-brand-text-muted hover:text-brand-orange"
+        }`}
+      >
+        {link.label}
+      </a>
+    ))}
+  </nav>
+</header>

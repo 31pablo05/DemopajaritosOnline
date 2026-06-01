@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import ProductGrid from "../components/islands/ProductGrid.jsx";
+import { products, categories } from "../data/products.js";
+---
+
+<Layout
+  title="Tienda | Pajaritos en la Cabeza"
+  description="Explorá todo nuestro catálogo de pijamas, remeras, cubrecamas y sets. Envíos a todo el país."
+>
+  <Header />
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
+    <div class="mb-8">
+      <h1
+        class="text-4xl text-brand-text mb-2"
+        style="font-family: var(--font-display)"
+      >
+        🛍️ Nuestra Tienda
+      </h1>
+      <p class="text-brand-text-muted font-semibold">
+        Explorá todos nuestros productos y encontrá el tuyo favorito
+      </p>
+    </div>
+
+    <ProductGrid client:load products={products} categories={categories} />
+  </main>
+
+  <Footer />
+</Layout>

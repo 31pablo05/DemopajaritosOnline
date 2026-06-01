@@ -1,17 +1,153 @@
 ---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import InfoBlock from "../components/ui/InfoBlock.astro";
+import ProductGrid from "../components/islands/ProductGrid.jsx";
+import { products, categories, storeInfo, formatARS } from "../data/products.js";
 
+const featured = products.filter((p) => p.tag !== null);
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout title="Pajaritos en la Cabeza | Tienda Online">
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section
+      class="relative overflow-hidden text-white py-16 px-4 text-center"
+      style="background-color: #fb8a01"
+    >
+      <div class="max-w-2xl mx-auto relative z-10">
+        <div class="text-6xl mb-4">🐦</div>
+        <h1
+          class="text-4xl md:text-5xl mb-4 leading-tight"
+          style="font-family: var(--font-display)"
+        >
+          Pajaritos en la Cabeza
+        </h1>
+        <p class="text-white/90 text-lg mb-8 font-semibold">
+          Estampas coloridas para toda la familia ✨<br />
+          Pijamas, remeras y más desde Trelew, Chubut.
+        </p>
+
+        <!-- Badges -->
+        <div class="flex flex-wrap gap-2 justify-center mb-8">
+          <span class="px-4 py-2 rounded-full text-sm font-bold border border-white/40" style="background: rgba(255,255,255,0.15)">
+            📦 Envío gratis en Trelew
+          </span>
+          <span class="px-4 py-2 rounded-full text-sm font-bold border border-white/40" style="background: rgba(255,255,255,0.15)">
+            🚚 Todo el país
+          </span>
+          <span class="px-4 py-2 rounded-full text-sm font-bold border border-white/40" style="background: rgba(255,255,255,0.15)">
+            💳 3 cuotas sin interés
+          </span>
+        </div>
+
+        <a
+          href="/tienda"
+          class="inline-block font-black text-lg px-8 py-3 rounded-full shadow-lg hover:scale-105 transition"
+          style="background-color: white; color: #fb8a01;"
+        >
+          Ver catálogo completo →
+        </a>
+      </div>
+    </section>
+
+    <!-- Featured products -->
+    <section class="max-w-6xl mx-auto px-4 py-12">
+      <h2
+        class="text-3xl text-brand-text mb-2"
+        style="font-family: var(--font-display)"
+      >
+        ⭐ Productos destacados
+      </h2>
+      <p class="text-brand-text-muted mb-6 font-semibold">Los favoritos de nuestros clientes</p>
+
+      <ProductGrid
+        client:load
+        products={featured}
+        categories={[{ id: "todos", label: "Todos", emoji: "⭐" }]}
+      />
+
+      <div class="text-center mt-8">
+        <a
+          href="/tienda"
+          class="inline-block bg-brand-orange text-white font-black px-8 py-3 rounded-full hover:bg-brand-orange-dark transition"
+        >
+          Ver todos los productos →
+        </a>
+      </div>
+    </section>
+
+    <!-- Info grid -->
+    <section class="bg-white py-12 px-4">
+      <div class="max-w-6xl mx-auto">
+        <h2
+          class="text-3xl text-brand-text mb-8 text-center"
+          style="font-family: var(--font-display)"
+        >
+          📍 Info del local
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <InfoBlock
+            emoji="🕐"
+            title="Horarios"
+            items={[
+              `Lunes a viernes: ${storeInfo.hours.weekdays}`,
+              `Sábados: ${storeInfo.hours.saturday}`,
+            ]}
+          />
+          <InfoBlock
+            emoji="📍"
+            title="Dónde estamos"
+            items={[storeInfo.address]}
+            color="bg-brand-purple-light"
+          />
+          <InfoBlock
+            emoji="💳"
+            title="Medios de pago"
+            items={storeInfo.payments}
+            color="bg-brand-purple-light"
+          />
+          <InfoBlock
+            emoji="🚚"
+            title="Envíos"
+            items={storeInfo.shipping}
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp banner -->
+    <section
+      class="py-12 px-4 text-center text-white"
+      style="background-color: #fb8a01"
+    >
+      <div class="max-w-xl mx-auto">
+        <p class="text-4xl mb-3">💬</p>
+        <h2
+          class="text-3xl mb-2"
+          style="font-family: var(--font-display)"
+        >
+          ¿Tenés alguna consulta?
+        </h2>
+        <p class="text-white/90 mb-6 font-semibold">
+          Escribinos por WhatsApp y te respondemos al toque.
+        </p>
+        <a
+          href={`https://wa.me/${storeInfo.whatsapp}?text=${encodeURIComponent("¡Hola Pajaritos! Quiero consultar sobre sus productos 🐦")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-block font-black text-lg px-8 py-3 rounded-full hover:scale-105 transition shadow-lg"
+          style="background-color: white; color: #fb8a01;"
+        >
+          Escribir por WhatsApp →
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
+

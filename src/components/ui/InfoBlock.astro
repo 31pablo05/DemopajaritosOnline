@@ -1,0 +1,24 @@
+---
+interface Props {
+  emoji: string;
+  title: string;
+  items: string[];
+  color?: string;
+}
+const { emoji, title, items, color } = Astro.props;
+---
+
+<div class="rounded-2xl p-5" style="background-color: #faf8ff; border: 1.5px solid #c1b3fc">
+  <div class="flex items-center gap-2 mb-3">
+    <span class="text-2xl" style="color: #c1b3fc">{emoji}</span>
+    <h3 class="font-black text-base" style="color: #2d1f5e">{title}</h3>
+  </div>
+  <ul class="flex flex-col gap-1">
+    {items.map((item) => (
+      <li class="text-sm flex items-start gap-1.5" style="color: #5a4a90">
+        <span class="mt-0.5" style="color: #fb8a01">•</span>
+        <span>{item}</span>
+      </li>
+    ))}
+  </ul>
+</div>

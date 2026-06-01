@@ -1,1 +1,79 @@
 @import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #fb8a01;
+  --color-brand-orange-dark: #e07a00;
+  --color-brand-purple: #7B3FA0;
+  --color-brand-lilac: #c1b3fc;
+  --color-brand-lilac-text: #6a4fc0;
+  --color-brand-text: #2d1f5e;
+  --color-brand-text-muted: #7a6aaa;
+  --color-brand-bg: #faf8ff;
+  --color-brand-bg-soft: #faf8ff;
+  --color-brand-orange-light: #fff7ed;
+  --color-brand-purple-light: #faf8ff;
+  --color-brand-footer: #1a0f3d;
+  --color-brand-footer-deep: #0d0820;
+  --color-brand-whatsapp: #25D366;
+  --color-brand-whatsapp-dark: #128C7E;
+
+  --font-display: "Fredoka One", cursive;
+  --font-body: "Nunito", sans-serif;
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+/* Brand variables for inline styles */
+:root {
+  --brand-orange: #fb8a01;
+  --brand-orange-hover: #e07a00;
+  --brand-white: #ffffff;
+  --brand-bg-soft: #faf8ff;
+  --brand-lilac: #c1b3fc;
+  --brand-lilac-text: #6a4fc0;
+  --brand-text: #2d1f5e;
+  --brand-text-muted: #7a6aaa;
+  --brand-footer: #1a0f3d;
+  --brand-footer-deep: #0d0820;
+}
+
+html, body {
+  font-family: var(--font-body);
+  background-color: var(--color-brand-bg);
+  color: var(--brand-text);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+}
+
+/* Scrollbar oculto en tabs horizontales */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+@keyframes slideUp {
+  from { transform: translateY(60px); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to   { transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes toastPop {
+  from { transform: translate(-50%, 16px); opacity: 0; }
+  to   { transform: translate(-50%, 0);    opacity: 1; }
+}
+
+.animate-slide-up      { animation: slideUp 0.32s cubic-bezier(0.34,1.56,0.64,1); }
+.animate-slide-right   { animation: slideInRight 0.3s ease-out; }
+.animate-fade          { animation: fadeIn 0.2s ease; }
+.animate-toast         { animation: toastPop 0.3s cubic-bezier(0.34,1.56,0.64,1); }
+
+.product-card { transition: transform 0.2s, box-shadow 0.2s; cursor: pointer; }
+.product-card:hover { transform: translateY(-5px); }

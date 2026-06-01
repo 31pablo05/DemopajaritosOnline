@@ -1,0 +1,67 @@
+---
+import { storeInfo } from "../../data/products.js";
+---
+
+<footer class="text-white mt-16" style="background-color: #1a0f3d">
+  <div class="max-w-6xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+
+    <!-- Brand -->
+    <div>
+      <div class="flex items-center gap-3 mb-3">
+        <div class="w-10 h-10 rounded-xl flex items-center justify-center text-xl shrink-0" style="background-color: #fb8a01">
+          🐦
+        </div>
+        <span class="font-black text-xl text-white" style="font-family: var(--font-display)">
+          Pajaritos en la Cabeza
+        </span>
+      </div>
+      <p class="text-sm leading-relaxed" style="color: rgba(255,255,255,0.5)">
+        Estampas coloridas para toda la familia.<br />
+        Pijamas, remeras y más desde Trelew, Chubut.
+      </p>
+    </div>
+
+    <!-- Links -->
+    <div>
+      <h3 class="font-black mb-3" style="font-family: var(--font-display); color: #c1b3fc">
+        Navegá
+      </h3>
+      <ul class="flex flex-col gap-2">
+        <li><a href="/" class="hover:text-white transition text-sm" style="color: rgba(255,255,255,0.7)">Inicio</a></li>
+        <li><a href="/tienda" class="hover:text-white transition text-sm" style="color: rgba(255,255,255,0.7)">Tienda</a></li>
+        <li><a href="/nosotros" class="hover:text-white transition text-sm" style="color: rgba(255,255,255,0.7)">Nosotros</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact -->
+    <div>
+      <h3 class="font-black mb-3" style="font-family: var(--font-display); color: #c1b3fc">
+        Contacto
+      </h3>
+      <p class="text-sm mb-1" style="color: rgba(255,255,255,0.7)">📍 {storeInfo.address}</p>
+      <a
+        href={`https://wa.me/${storeInfo.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 hover:text-white text-sm transition"
+        style="color: rgba(255,255,255,0.7)"
+      >
+        💬 WhatsApp
+      </a>
+      <br />
+      <a
+        href={`https://instagram.com/${storeInfo.instagram}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1 hover:text-white text-sm transition mt-1"
+        style="color: rgba(255,255,255,0.7)"
+      >
+        📸 @{storeInfo.instagram}
+      </a>
+    </div>
+  </div>
+
+  <div class="text-center py-4 text-xs" style="background-color: #0d0820; color: rgba(255,255,255,0.35)">
+    © {new Date().getFullYear()} Pajaritos en la Cabeza — Hecho con ❤️ en Trelew, Chubut
+  </div>
+</footer>
