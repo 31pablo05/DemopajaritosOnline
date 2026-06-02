@@ -50,7 +50,7 @@ export default function ProductGrid({ products, categories }) {
             {/* Image area */}
             <div
               className="w-full flex items-center justify-center relative"
-              style={{ backgroundColor: imageAreaBg, height: "140px", overflow: "hidden" }}
+              style={{ backgroundColor: imageAreaBg, aspectRatio: "1/1", overflow: "hidden" }}
             >
               {product.image ? (
                 <img

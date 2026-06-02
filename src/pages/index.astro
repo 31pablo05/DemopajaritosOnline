@@ -27,28 +27,28 @@ const featured = await getFeaturedProducts();
 
       <div class="max-w-2xl mx-auto relative z-10 w-full">
         <h1
-          class="text-4xl md:text-5xl mb-4 leading-tight"
-          style="font-family: var(--font-display); text-shadow: 0 0 18px rgba(193,179,252,0.9), 0 0 40px rgba(193,179,252,0.55), 2px 2px 0 rgba(107,79,192,0.35), -1px -1px 0 rgba(107,79,192,0.25);"
+          class="text-5xl md:text-6xl mb-6 leading-tight font-black"
+          style="font-family: var(--font-display); color: #2d1f5e; text-shadow: 0 0 20px rgba(255,255,255,0.9), 0 0 45px rgba(255,255,255,0.6), 2px 2px 4px rgba(255,255,255,0.8);"
         >
           Pajaritos en la Cabeza
         </h1>
         <p
-          class="text-white text-lg mb-8 font-semibold"
-          style="text-shadow: 0 0 14px rgba(193,179,252,0.85), 0 0 30px rgba(193,179,252,0.45), 1px 1px 0 rgba(107,79,192,0.3);"
+          class="text-2xl md:text-3xl mb-10 font-bold leading-relaxed"
+          style="color: #2d1f5e; text-shadow: 0 0 18px rgba(255,255,255,0.95), 0 0 35px rgba(255,255,255,0.7), 1px 1px 3px rgba(255,255,255,0.8);"
         >
           Estampas coloridas para toda la familia<br />
           Pijamas, remeras y más desde Trelew, Chubut.
         </p>
 
         <!-- Badges -->
-        <div class="flex flex-wrap gap-2 justify-center mb-8">
-          <span class="px-4 py-2 rounded-full text-sm font-bold border border-white/40" style="background: rgba(255,255,255,0.15)">
+        <div class="flex flex-wrap gap-3 justify-center mb-10">
+          <span class="px-5 py-3 rounded-full text-base md:text-lg font-bold" style="background: #2d1f5e; color: white; box-shadow: 0 4px 12px rgba(45,31,94,0.3);">
             📦 Envío gratis en Trelew
           </span>
-          <span class="px-4 py-2 rounded-full text-sm font-bold border border-white/40" style="background: rgba(255,255,255,0.15)">
+          <span class="px-5 py-3 rounded-full text-base md:text-lg font-bold" style="background: #2d1f5e; color: white; box-shadow: 0 4px 12px rgba(45,31,94,0.3);">
             🚚 Todo el país
           </span>
-          <span class="px-4 py-2 rounded-full text-sm font-bold border border-white/40" style="background: rgba(255,255,255,0.15)">
+          <span class="px-5 py-3 rounded-full text-base md:text-lg font-bold" style="background: #2d1f5e; color: white; box-shadow: 0 4px 12px rgba(45,31,94,0.3);">
             💳 3 cuotas sin interés
           </span>
         </div>
@@ -146,81 +146,15 @@ const featured = await getFeaturedProducts();
       </div>
     </section>
 
-    <!-- Personalización banner -->
-    <section class="px-4 py-14" style="background: linear-gradient(135deg, #2d1f5e 0%, #3d2a7e 100%);">
-      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
-        <div class="text-6xl md:text-8xl flex-shrink-0" style="line-height:1;">🎨</div>
-        <div class="flex-1 text-center md:text-left">
-          <p class="font-black text-sm tracking-widest mb-2" style="color: #c1b3fc;">SERVICIO ESPECIAL</p>
-          <h2 class="text-3xl md:text-4xl text-white mb-3" style="font-family: var(--font-display);">
-            ¡Personalizamos para vos!
-          </h2>
-          <p class="mb-6 font-semibold" style="color: rgba(255,255,255,0.75);">
-            Estampas con tu diseño, nombre o personaje favorito. Ideal para regalos, cumpleaños o pedidos en grupo. ¡Contanos tu idea y lo hacemos realidad!
-          </p>
-          <a
-            href={`https://wa.me/${storeInfo.whatsapp}?text=${encodeURIComponent("Hola! Me interesa un pedido personalizado 🎨")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 font-black text-base px-7 py-3 rounded-full hover:scale-105 transition"
-            style="background: #fb8a01; color: white; box-shadow: 0 4px 20px rgba(251,138,1,0.4);"
-          >
-            Consultá por WhatsApp →
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonios -->
-    <section class="py-14 px-4" style="background: #faf8ff;">
-      <div class="max-w-6xl mx-auto">
-        <h2 class="text-3xl text-brand-text mb-2 text-center" style="font-family: var(--font-display);">
-          ❤️ Lo que dicen nuestros clientes
-        </h2>
-        <p class="text-brand-text-muted text-center mb-10 font-semibold">Familias de Trelew y de toda la Argentina</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div class="bg-white rounded-3xl p-6 shadow-sm" style="border: 1.5px solid #ede8ff;">
-            <div class="flex gap-1 mb-3">{"⭐⭐⭐⭐⭐"}</div>
-            <p class="font-semibold mb-4" style="color: #5a4a90;">"Le compré el pijama de dinosaurio a mi hijo y quedó re feliz. Muy buena calidad y llegó rapidísimo. ¡Ya vamos por el segundo!"</p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full font-black text-white flex items-center justify-center text-sm" style="background: #c1b3fc; color: #2d1f5e;">MA</div>
-              <div>
-                <p class="font-black text-sm" style="color: #2d1f5e;">María A.</p>
-                <p class="text-xs" style="color: #7a6aaa;">Trelew, Chubut</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-3xl p-6 shadow-sm" style="border: 1.5px solid #ede8ff;">
-            <div class="flex gap-1 mb-3">{"⭐⭐⭐⭐⭐"}</div>
-            <p class="font-semibold mb-4" style="color: #5a4a90;">"Pedí remeras personalizadas para el cumple de mi nena. Me ayudaron con el diseño, quedaron hermosas. Todos los invitados preguntaron dónde las compré."</p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full font-black flex items-center justify-center text-sm" style="background: #fb8a01; color: white;">CG</div>
-              <div>
-                <p class="font-black text-sm" style="color: #2d1f5e;">Carolina G.</p>
-                <p class="text-xs" style="color: #7a6aaa;">Rawson, Chubut</p>
-              </div>
-            </div>
-          </div>
-          <div class="bg-white rounded-3xl p-6 shadow-sm" style="border: 1.5px solid #ede8ff;">
-            <div class="flex gap-1 mb-3">{"⭐⭐⭐⭐⭐"}</div>
-            <p class="font-semibold mb-4" style="color: #5a4a90;">"Compré el set pijama + remera como regalo de Navidad. El packaging es re lindo y la calidad excelente. Lo recomiendo sin dudarlo."</p>
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-full font-black flex items-center justify-center text-sm" style="background: #c1b3fc; color: #2d1f5e;">LR</div>
-              <div>
-                <p class="font-black text-sm" style="color: #2d1f5e;">Lucas R.</p>
-                <p class="text-xs" style="color: #7a6aaa;">Buenos Aires</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- Info grid -->
-    <section class="bg-white py-12 px-4">      <div class="max-w-6xl mx-auto">
+    <section class="relative py-20 md:py-28 px-4 bg-cover bg-center bg-no-repeat" style="background-image: url('/fondoinfolocal.jpg');">
+      <!-- Overlay violeta para legibilidad -->
+      <div class="absolute inset-0" style="background-color: rgba(45, 31, 94, 0.5);"></div>
+      
+      <div class="max-w-6xl mx-auto relative z-10">
         <h2
-          class="text-3xl text-brand-text mb-8 text-center"
-          style="font-family: var(--font-display)"
+          class="text-3xl md:text-4xl text-white mb-8 text-center font-black"
+          style="font-family: var(--font-display); text-shadow: 0 2px 10px rgba(0,0,0,0.3);"
         >
           📍 Info del local
         </h2>

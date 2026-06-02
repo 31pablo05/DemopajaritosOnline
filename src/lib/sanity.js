@@ -27,9 +27,12 @@ export async function getProducts() {
     *[_type == "product"] | order(order asc, _createdAt desc) {
       "id": _id,
       name,
-      category,
+      "category": category->slug.current,
+      "categoryTitle": category->title,
+      "categoryEmoji": category->emoji,
       price,
       description,
+      hasSizes,
       sizes,
       tag,
       inStock,
@@ -47,9 +50,12 @@ export async function getFeaturedProducts() {
     *[_type == "product" && featured == true] | order(order asc, _createdAt desc) {
       "id": _id,
       name,
-      category,
+      "category": category->slug.current,
+      "categoryTitle": category->title,
+      "categoryEmoji": category->emoji,
       price,
       description,
+      hasSizes,
       sizes,
       tag,
       inStock,
@@ -58,4 +64,17 @@ export async function getFeaturedProducts() {
       "imageRef": image
     }
   `);
+}
+
+// Trae las categorías dinámicas para los filtros de la tienda
+export async function getCategories() {
+  if (!sanityClient) return [{ id: "todos", label: "Todos", emoji: "🛍️" }];
+  const cats = await sanityClient.fetch(`
+    *[_type == "category"] | order(order asc) {
+      "id": slug.current,
+      "label": title,
+      emoji
+    }
+  `);
+  return [{ id: "todos", label: "Todos", emoji: "🛍️" }, ...cats];
 }

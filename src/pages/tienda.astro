@@ -3,9 +3,9 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import ProductGrid from "../components/islands/ProductGrid.jsx";
-import { getProducts } from "../lib/sanity.js";
-import { categories } from "../data/products.js";
+import { getProducts, getCategories } from "../lib/sanity.js";
 const products = await getProducts();
+const categories = await getCategories();
 ---
 
 <Layout
