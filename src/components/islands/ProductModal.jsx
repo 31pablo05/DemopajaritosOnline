@@ -43,10 +43,18 @@ export default function ProductModal({ product, onClose }) {
 
         {/* Product image area */}
         <div
-          className="w-full rounded-2xl flex items-center justify-center text-7xl mb-5"
+          className="w-full rounded-2xl flex items-center justify-center text-7xl mb-5 overflow-hidden"
           style={{ backgroundColor: product.bgColor, height: "180px" }}
         >
-          {product.emoji}
+          {product.image ? (
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-full object-cover rounded-2xl"
+            />
+          ) : (
+            <span className="text-7xl">{product.emoji ?? "📦"}</span>
+          )}
         </div>
 
         {/* Info */}

@@ -50,17 +50,16 @@ export default function ProductGrid({ products, categories }) {
             {/* Image area */}
             <div
               className="w-full flex items-center justify-center relative"
-              style={{ backgroundColor: imageAreaBg, height: "140px" }}
+              style={{ backgroundColor: imageAreaBg, height: "140px", overflow: "hidden" }}
             >
-              {product.id === "cub-argentina" ? (
-                <span
-                  className="text-4xl font-black"
-                  style={{ fontFamily: "var(--font-display)", color: isOrangeTheme ? "rgba(255,255,255,0.9)" : "#4a3080" }}
-                >
-                  ARG
-                </span>
+              {product.image ? (
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover"
+                />
               ) : (
-                <span className="text-5xl">{product.emoji}</span>
+                <span className="text-5xl">{product.emoji ?? "📦"}</span>
               )}
               {product.tag && (
                 <span

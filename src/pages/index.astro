@@ -4,9 +4,9 @@ import Header from "../components/layout/Header.astro";
 import Footer from "../components/layout/Footer.astro";
 import InfoBlock from "../components/ui/InfoBlock.astro";
 import ProductGrid from "../components/islands/ProductGrid.jsx";
-import { products, categories, storeInfo, formatARS } from "../data/products.js";
-
-const featured = products.filter((p) => p.tag !== null);
+import { getFeaturedProducts } from "../lib/sanity.js";
+import { categories, storeInfo, formatARS } from "../data/products.js";
+const featured = await getFeaturedProducts();
 ---
 
 <Layout title="Pajaritos en la Cabeza | Tienda Online">

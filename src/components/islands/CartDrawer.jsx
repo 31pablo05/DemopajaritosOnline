@@ -49,12 +49,20 @@ export default function CartDrawer() {
                   key={`${item.id}-${item.selectedSize}`}
                   className="flex items-center gap-3 bg-brand-purple-light rounded-2xl p-3"
                 >
-                  {/* Emoji thumbnail */}
+                  {/* Product thumbnail */}
                   <div
-                    className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0"
+                    className="w-14 h-14 rounded-xl flex items-center justify-center text-2xl shrink-0 overflow-hidden"
                     style={{ backgroundColor: item.bgColor }}
                   >
-                    {item.emoji}
+                    {item.image ? (
+                      <img
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <span className="text-2xl">{item.emoji ?? "📦"}</span>
+                    )}
                   </div>
 
                   <div className="flex-1 min-w-0">
