@@ -53,6 +53,34 @@ h1, h2, h3 {
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+/* Flecha scroll en hero */
+@keyframes scrollBounce {
+  0%, 100% { transform: translateY(0); opacity: 0.9; }
+  50%       { transform: translateY(8px); opacity: 0.5; }
+}
+.scroll-arrow { animation: scrollBounce 1.8s ease-in-out infinite; }
+
+/* Botón flotante WhatsApp */
+.whatsapp-fab {
+  position: fixed;
+  bottom: 24px;
+  right: 20px;
+  z-index: 50;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #1aaf55 100%);
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.whatsapp-fab:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 28px rgba(37,211,102,0.65);
+}
+
 @keyframes slideUp {
   from { transform: translateY(60px); opacity: 0; }
   to   { transform: translateY(0);    opacity: 1; }

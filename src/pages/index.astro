@@ -61,11 +61,68 @@ const featured = products.filter((p) => p.tag !== null);
           Ver catálogo completo →
         </a>
       </div>
+
+      <!-- Flecha de scroll animada -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 scroll-arrow" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Strip de beneficios -->
+    <div style="background: #2d1f5e;" class="py-4 px-4">
+      <div class="max-w-6xl mx-auto flex flex-wrap justify-center gap-x-8 gap-y-3">
+        <div class="flex items-center gap-2 text-white font-bold text-sm">
+          <span style="color: #fb8a01; font-size: 1.2rem;">📦</span> Envío gratis en Trelew
+        </div>
+        <div class="flex items-center gap-2 text-white font-bold text-sm">
+          <span style="color: #fb8a01; font-size: 1.2rem;">🚚</span> Enviamos a todo el país
+        </div>
+        <div class="flex items-center gap-2 text-white font-bold text-sm">
+          <span style="color: #fb8a01; font-size: 1.2rem;">💳</span> Hasta 3 cuotas sin interés
+        </div>
+        <div class="flex items-center gap-2 text-white font-bold text-sm">
+          <span style="color: #fb8a01; font-size: 1.2rem;">🎨</span> Diseños exclusivos
+        </div>
+        <div class="flex items-center gap-2 text-white font-bold text-sm">
+          <span style="color: #fb8a01; font-size: 1.2rem;">💬</span> Atención personalizada
+        </div>
+      </div>
+    </div>
+
+    <!-- Categorías visuales -->
+    <section class="max-w-6xl mx-auto px-4 pt-12 pb-4">
+      <h2 class="text-3xl text-brand-text mb-2 text-center" style="font-family: var(--font-display)">
+        ¿Qué estás buscando?
+      </h2>
+      <p class="text-brand-text-muted text-center mb-8 font-semibold">Explorá nuestras categorías</p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="/tienda" class="category-card group flex flex-col items-center gap-3 py-8 px-4 rounded-3xl text-center transition-all duration-200 hover:-translate-y-1" style="background: linear-gradient(135deg, #c1b3fc 0%, #a99bf0 100%); box-shadow: 0 4px 20px rgba(193,179,252,0.4);">
+          <span style="font-size: 2.8rem; line-height:1;">😴</span>
+          <span class="font-black text-lg" style="color: #2d1f5e;">Pijamas</span>
+          <span class="text-xs font-bold" style="color: #5a4a90;">Para toda la familia</span>
+        </a>
+        <a href="/tienda" class="category-card group flex flex-col items-center gap-3 py-8 px-4 rounded-3xl text-center transition-all duration-200 hover:-translate-y-1" style="background: linear-gradient(135deg, #fb8a01 0%, #e07a00 100%); box-shadow: 0 4px 20px rgba(251,138,1,0.35);">
+          <span style="font-size: 2.8rem; line-height:1;">👕</span>
+          <span class="font-black text-lg text-white">Remeras</span>
+          <span class="text-xs font-bold text-white/80">Estampas únicas</span>
+        </a>
+        <a href="/tienda" class="category-card group flex flex-col items-center gap-3 py-8 px-4 rounded-3xl text-center transition-all duration-200 hover:-translate-y-1" style="background: linear-gradient(135deg, #fb8a01 0%, #e07a00 100%); box-shadow: 0 4px 20px rgba(251,138,1,0.35);">
+          <span style="font-size: 2.8rem; line-height:1;">🛏️</span>
+          <span class="font-black text-lg text-white">Cubrecamas</span>
+          <span class="text-xs font-bold text-white/80">Para tu cuarto</span>
+        </a>
+        <a href="/tienda" class="category-card group flex flex-col items-center gap-3 py-8 px-4 rounded-3xl text-center transition-all duration-200 hover:-translate-y-1" style="background: linear-gradient(135deg, #c1b3fc 0%, #a99bf0 100%); box-shadow: 0 4px 20px rgba(193,179,252,0.4);">
+          <span style="font-size: 2.8rem; line-height:1;">🎁</span>
+          <span class="font-black text-lg" style="color: #2d1f5e;">Sets</span>
+          <span class="text-xs font-bold" style="color: #5a4a90;">Combo ideal de regalo</span>
+        </a>
+      </div>
     </section>
 
     <!-- Featured products -->
-    <section class="max-w-6xl mx-auto px-4 py-12">
-      <h2
+    <section class="max-w-6xl mx-auto px-4 py-12">      <h2
         class="text-3xl text-brand-text mb-2"
         style="font-family: var(--font-display)"
       >
@@ -89,9 +146,78 @@ const featured = products.filter((p) => p.tag !== null);
       </div>
     </section>
 
-    <!-- Info grid -->
-    <section class="bg-white py-12 px-4">
+    <!-- Personalización banner -->
+    <section class="px-4 py-14" style="background: linear-gradient(135deg, #2d1f5e 0%, #3d2a7e 100%);">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-8">
+        <div class="text-6xl md:text-8xl flex-shrink-0" style="line-height:1;">🎨</div>
+        <div class="flex-1 text-center md:text-left">
+          <p class="font-black text-sm tracking-widest mb-2" style="color: #c1b3fc;">SERVICIO ESPECIAL</p>
+          <h2 class="text-3xl md:text-4xl text-white mb-3" style="font-family: var(--font-display);">
+            ¡Personalizamos para vos!
+          </h2>
+          <p class="mb-6 font-semibold" style="color: rgba(255,255,255,0.75);">
+            Estampas con tu diseño, nombre o personaje favorito. Ideal para regalos, cumpleaños o pedidos en grupo. ¡Contanos tu idea y lo hacemos realidad!
+          </p>
+          <a
+            href={`https://wa.me/${storeInfo.whatsapp}?text=${encodeURIComponent("Hola! Me interesa un pedido personalizado 🎨")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 font-black text-base px-7 py-3 rounded-full hover:scale-105 transition"
+            style="background: #fb8a01; color: white; box-shadow: 0 4px 20px rgba(251,138,1,0.4);"
+          >
+            Consultá por WhatsApp →
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="py-14 px-4" style="background: #faf8ff;">
       <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl text-brand-text mb-2 text-center" style="font-family: var(--font-display);">
+          ❤️ Lo que dicen nuestros clientes
+        </h2>
+        <p class="text-brand-text-muted text-center mb-10 font-semibold">Familias de Trelew y de toda la Argentina</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-3xl p-6 shadow-sm" style="border: 1.5px solid #ede8ff;">
+            <div class="flex gap-1 mb-3">{"⭐⭐⭐⭐⭐"}</div>
+            <p class="font-semibold mb-4" style="color: #5a4a90;">"Le compré el pijama de dinosaurio a mi hijo y quedó re feliz. Muy buena calidad y llegó rapidísimo. ¡Ya vamos por el segundo!"</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full font-black text-white flex items-center justify-center text-sm" style="background: #c1b3fc; color: #2d1f5e;">MA</div>
+              <div>
+                <p class="font-black text-sm" style="color: #2d1f5e;">María A.</p>
+                <p class="text-xs" style="color: #7a6aaa;">Trelew, Chubut</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl p-6 shadow-sm" style="border: 1.5px solid #ede8ff;">
+            <div class="flex gap-1 mb-3">{"⭐⭐⭐⭐⭐"}</div>
+            <p class="font-semibold mb-4" style="color: #5a4a90;">"Pedí remeras personalizadas para el cumple de mi nena. Me ayudaron con el diseño, quedaron hermosas. Todos los invitados preguntaron dónde las compré."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full font-black flex items-center justify-center text-sm" style="background: #fb8a01; color: white;">CG</div>
+              <div>
+                <p class="font-black text-sm" style="color: #2d1f5e;">Carolina G.</p>
+                <p class="text-xs" style="color: #7a6aaa;">Rawson, Chubut</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-3xl p-6 shadow-sm" style="border: 1.5px solid #ede8ff;">
+            <div class="flex gap-1 mb-3">{"⭐⭐⭐⭐⭐"}</div>
+            <p class="font-semibold mb-4" style="color: #5a4a90;">"Compré el set pijama + remera como regalo de Navidad. El packaging es re lindo y la calidad excelente. Lo recomiendo sin dudarlo."</p>
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-full font-black flex items-center justify-center text-sm" style="background: #c1b3fc; color: #2d1f5e;">LR</div>
+              <div>
+                <p class="font-black text-sm" style="color: #2d1f5e;">Lucas R.</p>
+                <p class="text-xs" style="color: #7a6aaa;">Buenos Aires</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Info grid -->
+    <section class="bg-white py-12 px-4">      <div class="max-w-6xl mx-auto">
         <h2
           class="text-3xl text-brand-text mb-8 text-center"
           style="font-family: var(--font-display)"
