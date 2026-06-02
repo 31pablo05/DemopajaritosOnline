@@ -14,18 +14,37 @@ const categories = await getCategories();
 >
   <Header />
 
-  <main class="max-w-6xl mx-auto px-4 py-10">
-    <div class="mb-8">
+  <!-- Hero con video -->
+  <section class="relative overflow-hidden min-h-[80vh] md:min-h-[85vh] flex items-end justify-center pb-12 md:pb-16">
+    <!-- Video de fondo -->
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      class="absolute inset-0 w-full h-full object-cover"
+    >
+      <source src="/videos/videofondo.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Overlay oscuro para legibilidad del texto -->
+    <div class="absolute inset-0 bg-black/40"></div>
+
+    <!-- Contenido sobre el video -->
+    <div class="relative z-10 text-center text-white px-4 max-w-3xl mx-auto">
       <h1
-        class="text-4xl text-brand-text mb-2"
-        style="font-family: var(--font-display)"
+        class="text-5xl md:text-6xl mb-4 font-black leading-tight"
+        style="font-family: var(--font-display); text-shadow: 0 2px 20px rgba(0,0,0,0.5);"
       >
         🛍️ Nuestra Tienda
       </h1>
-      <p class="text-brand-text-muted font-semibold">
+      <p class="text-xl md:text-2xl font-bold" style="text-shadow: 0 2px 15px rgba(0,0,0,0.5);">
         Explorá todos nuestros productos y encontrá el tuyo favorito
       </p>
     </div>
+  </section>
+
+  <main class="max-w-6xl mx-auto px-4 py-10">
 
     <ProductGrid client:load products={products} categories={categories} />
   </main>
