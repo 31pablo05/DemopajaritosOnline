@@ -1,5 +1,6 @@
 ---
 import CartWidget from "../islands/CartWidget.jsx";
+import { storeInfo } from "../../data/products.js";
 
 const navLinks = [
   { href: "/", label: "Inicio", emoji: "🏠" },
@@ -8,39 +9,19 @@ const navLinks = [
 ];
 
 const currentPath = Astro.url.pathname;
+const whatsappUrl = `https://wa.me/${storeInfo.whatsapp}?text=${encodeURIComponent("Hola! Quisiera hacer un pedido 😊")}`;
 ---
 
 <header
   id="main-header"
   class="sticky top-0 z-30"
-  style="background: white; box-shadow: 0 2px 16px rgba(251,138,1,0.1);"
+  style="
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(251,138,1,0.1);
+  "
 >
-  <!-- Barra de anuncio (se oculta al hacer scroll) -->
-  <div
-    id="announcement-bar"
-    aria-label="Información de la tienda"
-    style="
-      background: linear-gradient(90deg, #e07a00 0%, #fb8a01 45%, #e07a00 100%);
-      color: white;
-      text-align: center;
-      font-size: 0.72rem;
-      font-weight: 800;
-      letter-spacing: 0.04em;
-      padding: 7px 16px;
-      overflow: hidden;
-      max-height: 36px;
-      opacity: 1;
-      white-space: nowrap;
-      transition: max-height 0.32s ease, opacity 0.22s ease, padding 0.32s ease;
-    "
-  >
-    <span>📍 Brown 21, Local 2 — Trelew, Chubut</span>
-    <span style="margin: 0 10px; opacity: 0.38;">|</span>
-    <span>✨ Envíos a todo Chubut</span>
-    <span style="margin: 0 10px; opacity: 0.38;">|</span>
-    <span>💬 Pedís por WhatsApp</span>
-  </div>
-
   <!-- Main row -->
   <div class="max-w-6xl mx-auto px-4 py-1.5 flex items-center justify-between gap-4">
 
@@ -177,12 +158,27 @@ const currentPath = Astro.url.pathname;
           🐦 Pajaritos en la Cabeza · Trelew, Chubut
         </p>
       </div>
+
+      <!-- Botón WhatsApp -->
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex items-center gap-3 px-5 py-4 rounded-2xl font-black text-sm text-white transition-all duration-200 active:scale-95"
+        style="background: linear-gradient(135deg, #25D366 0%, #1aaf55 100%); box-shadow: 0 4px 18px rgba(37,211,102,0.4); margin-top: 2px;"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width:22px;height:22px;flex-shrink:0;">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <span class="flex-1">Hacer un pedido</span>
+        <span style="font-size:0.72rem; opacity:0.82; font-weight:700;">WhatsApp →</span>
+      </a>
     </nav>
   </div>
 </header>
 
 <style>
-  /* Animación de entrada del logo */
+  /* ── Logo ─────────────────────────────────────────── */
   @keyframes logoEntrance {
     from {
       opacity: 0;
@@ -240,9 +236,7 @@ const currentPath = Astro.url.pathname;
 
   /* Glassmorphism + sombra naranja al hacer scroll */
   #main-header.is-scrolled {
-    background: rgba(255, 255, 255, 0.9) !important;
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    background: rgba(255, 255, 255, 0.97) !important;
     box-shadow: 0 4px 28px rgba(251, 138, 1, 0.22) !important;
   }
 </style>
@@ -251,14 +245,14 @@ const currentPath = Astro.url.pathname;
   const btn = document.getElementById("hamburger-btn");
   const menu = document.getElementById("mobile-menu");
   const header = document.getElementById("main-header");
-  const announcementBar = document.getElementById("announcement-bar");
 
   function openMenu() {
     if (!btn || !menu) return;
     btn.classList.add("is-open");
     btn.setAttribute("aria-expanded", "true");
     menu.setAttribute("aria-hidden", "false");
-    menu.style.maxHeight = menu.scrollHeight + "px";
+    // Usar valor fijo en lugar de scrollHeight para evitar que quede trabado
+    menu.style.maxHeight = "600px";
     menu.style.opacity = "1";
   }
 
@@ -289,25 +283,11 @@ const currentPath = Astro.url.pathname;
     { passive: true }
   );
 
-  // Glassmorphism + ocultar barra de anuncio al hacer scroll
+  // Glassmorphism al hacer scroll
   window.addEventListener(
     "scroll",
     () => {
-      const isScrolled = window.scrollY > 8;
-      header?.classList.toggle("is-scrolled", isScrolled);
-      if (announcementBar) {
-        if (isScrolled) {
-          announcementBar.style.maxHeight = "0";
-          announcementBar.style.opacity = "0";
-          announcementBar.style.paddingTop = "0";
-          announcementBar.style.paddingBottom = "0";
-        } else {
-          announcementBar.style.maxHeight = "36px";
-          announcementBar.style.opacity = "1";
-          announcementBar.style.paddingTop = "7px";
-          announcementBar.style.paddingBottom = "7px";
-        }
-      }
+      header?.classList.toggle("is-scrolled", window.scrollY > 8);
     },
     { passive: true }
   );

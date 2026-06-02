@@ -15,19 +15,28 @@ const featured = products.filter((p) => p.tag !== null);
   <main>
     <!-- Hero -->
     <section
-      class="relative overflow-hidden text-white py-16 px-4 text-center"
-      style="background-color: #fb8a01"
+      class="relative overflow-hidden text-white min-h-screen flex items-center justify-center px-4 text-center bg-cover bg-center bg-no-repeat hero-section"
+      style="background-image: url('/hero/herodesktop3.jpg'); background-color: #fb8a01;"
     >
-      <div class="max-w-2xl mx-auto relative z-10">
-        <div class="text-6xl mb-4">🐦</div>
+      <!-- Overlay naranja semitransparente para legibilidad -->
+      <div
+        aria-hidden="true"
+        class="absolute inset-0 z-0"
+        style="background-color: rgba(251, 138, 1, 0.55);"
+      ></div>
+
+      <div class="max-w-2xl mx-auto relative z-10 w-full">
         <h1
           class="text-4xl md:text-5xl mb-4 leading-tight"
-          style="font-family: var(--font-display)"
+          style="font-family: var(--font-display); text-shadow: 0 0 18px rgba(193,179,252,0.9), 0 0 40px rgba(193,179,252,0.55), 2px 2px 0 rgba(107,79,192,0.35), -1px -1px 0 rgba(107,79,192,0.25);"
         >
           Pajaritos en la Cabeza
         </h1>
-        <p class="text-white/90 text-lg mb-8 font-semibold">
-          Estampas coloridas para toda la familia ✨<br />
+        <p
+          class="text-white text-lg mb-8 font-semibold"
+          style="text-shadow: 0 0 14px rgba(193,179,252,0.85), 0 0 30px rgba(193,179,252,0.45), 1px 1px 0 rgba(107,79,192,0.3);"
+        >
+          Estampas coloridas para toda la familia<br />
           Pijamas, remeras y más desde Trelew, Chubut.
         </p>
 
@@ -150,4 +159,13 @@ const featured = products.filter((p) => p.tag !== null);
 
   <Footer />
 </Layout>
+
+<style>
+  /* Hero mobile: imagen diferente en pantallas pequeñas */
+  @media (max-width: 767px) {
+    .hero-section {
+      background-image: url('/hero/heromobile.jpg') !important;
+    }
+  }
+</style>
 
