@@ -4,11 +4,21 @@ import { storeInfo } from "../../data/products.js";
 
 const navLinks = [
   { href: "/", label: "Inicio", emoji: "🏠" },
-  { href: "/tienda", label: "Tienda", emoji: "🛍️", badge: "NUEVO" },
+  { href: "/tienda", label: "Tienda", emoji: "🛍️" },
   { href: "/#nosotros", label: "Nosotros", emoji: "🐦" },
 ];
 
 const currentPath = Astro.url.pathname;
+
+// Helper function to determine if a link is active
+// Hash links (like /#nosotros) are never highlighted server-side
+const isLinkActive = (linkHref: string) => {
+  if (linkHref.startsWith('/#')) {
+    return false;
+  }
+  return currentPath === linkHref;
+};
+
 const whatsappUrl = `https://wa.me/${storeInfo.whatsapp}?text=${encodeURIComponent("Hola! Quisiera hacer un pedido 😊")}`;
 ---
 
@@ -40,7 +50,7 @@ const whatsappUrl = `https://wa.me/${storeInfo.whatsapp}?text=${encodeURICompone
         <a
           href={link.href}
           class={`nav-item relative px-5 py-2 rounded-full font-black text-sm transition-all duration-200 group ${
-            currentPath === link.href
+            isLinkActive(link.href)
               ? "bg-brand-orange text-white nav-active"
               : "text-brand-text hover:bg-brand-orange-light hover:text-brand-orange hover:-translate-y-0.5"
           }`}
@@ -48,15 +58,7 @@ const whatsappUrl = `https://wa.me/${storeInfo.whatsapp}?text=${encodeURICompone
         >
           <span class="mr-1.5 text-xs">{link.emoji}</span>
           {link.label}
-          {link.badge && (
-            <span
-              class="absolute -top-2 -right-1 font-black rounded-full px-1.5"
-              style="font-size: 0.55rem; background: #c1b3fc; color: #2d1f5e; letter-spacing: 0.04em; line-height: 1.8;"
-            >
-              {link.badge}
-            </span>
-          )}
-          {currentPath !== link.href && (
+          {!isLinkActive(link.href) && (
             <span class="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-0 rounded-full bg-brand-orange transition-all duration-200 group-hover:w-4/5" />
           )}
         </a>
@@ -126,38 +128,20 @@ const whatsappUrl = `https://wa.me/${storeInfo.whatsapp}?text=${encodeURICompone
         <a
           href={link.href}
           class={`flex items-center gap-3 px-5 py-3.5 rounded-2xl font-black text-sm transition-all duration-200 ${
-            currentPath === link.href
+            isLinkActive(link.href)
               ? "text-white"
               : "text-brand-text hover:bg-brand-orange-light hover:text-brand-orange hover:translate-x-1"
           }`}
           style={
-            currentPath === link.href
+            isLinkActive(link.href)
               ? "background: linear-gradient(135deg, #fb8a01 0%, #e07a00 100%); box-shadow: 0 4px 14px rgba(251,138,1,0.35);"
               : ""
           }
         >
           <span class="text-lg leading-none">{link.emoji}</span>
           <span class="flex-1">{link.label}</span>
-          {link.badge && currentPath !== link.href && (
-            <span
-              class="font-black rounded-full px-2 py-0.5"
-              style="font-size: 0.6rem; background: #c1b3fc; color: #2d1f5e; letter-spacing: 0.04em;"
-            >
-              {link.badge}
-            </span>
-          )}
-          {currentPath === link.href && (
-            <span class="text-white/70 text-xs">activo ✓</span>
-          )}
         </a>
       ))}
-
-      <!-- Tagline de tienda -->
-      <div style="border-top: 1px solid rgba(193,179,252,0.35); margin-top: 6px; padding-top: 12px; text-align: center;">
-        <p style="font-size: 0.7rem; color: #7a6aaa; font-weight: 700; letter-spacing: 0.04em;">
-          🐦 Pajaritos en la Cabeza · Trelew, Chubut
-        </p>
-      </div>
 
       <!-- Botón WhatsApp -->
       <a
